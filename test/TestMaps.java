@@ -13,7 +13,7 @@ public class TestMaps {
 
     @Test
     public void testPhoneMnemonicsOptional() {
-        assertEquals("mapsareawesome", Mnemonics.toNumber("6 2 7 7777 2 777 33 2 9 33 7777 666 6 33"));
+        assertEquals("mapsareawesome", Mnemonics.fromDigits("6 2 7 7777 2 777 33 2 9 33 7777 666 6 33"));
     }
 
     @Test

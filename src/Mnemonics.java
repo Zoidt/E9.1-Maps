@@ -19,13 +19,29 @@ public class Mnemonics {
         for (int i = 0; i < alphabet.length(); i++) {
             keypad.put(alphabet.charAt(i), keys.charAt(i) - '0');
         }
-        
+
     }
 
     public static String toNumber(String mnemonic) {
+
+        // Loop over mnemonic, check only letters
+        int i = 0;
+        StringBuilder numberResult = new StringBuilder();
+        // Loop over message
+        for (int j = 0; j < mnemonic.length() ; j++) {
+
+            char c = mnemonic.charAt(j);
+
+            // only get number value for letters in message (avoid signs, etc)
+            if(Character.isLetter(mnemonic.charAt(j))) {
+                numberResult.append(keypad.get(c));
+            }else{
+                numberResult.append(c);
+            }
+        }
         // TODO
 
-        return "";
+        return numberResult.toString();
     }
 
     public static String fromDigits(String digits) {

@@ -94,6 +94,8 @@ public class WordCounter {
      */
     public void countWordsInFile(String fileName) {
         // TODO
+        Scanner scanner = scanFile(fileName);
+        scanner.useDelimiter("[\\p{Punct}\\s]+");
     }
 
     /**
