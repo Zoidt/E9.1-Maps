@@ -4,6 +4,7 @@ import collections.map.Map;
 import collections.set.Set;
 import collections.set.SimpleSet;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -98,11 +99,10 @@ public class WordCounter {
         scanner.useDelimiter("[\\p{Punct}\\s]+");
         // Map words to their counts
         while (scanner.hasNext()) {
-            String word = scanner.next();
+            String word = scanner.next().toLowerCase();
             // Only accept words that are not stop words
             if (!stopWords.contains(word)) {
 
-                word = word.toLowerCase();
                 // If encounter word that is already in map, override it with count + 1
                 if (wordCount.containsKey(word)) {
                     wordCount.put(word, wordCount.get(word) + 1);
@@ -113,6 +113,9 @@ public class WordCounter {
                 }
             }
         }
+        
+        // Close the scanner
+        scanner.close();
     }
 
     /**
