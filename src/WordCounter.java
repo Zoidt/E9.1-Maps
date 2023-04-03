@@ -96,6 +96,23 @@ public class WordCounter {
         // TODO
         Scanner scanner = scanFile(fileName);
         scanner.useDelimiter("[\\p{Punct}\\s]+");
+        // Map words to their counts
+        while (scanner.hasNext()) {
+            String word = scanner.next();
+            // Only accept words that are not stop words
+            if (!stopWords.contains(word)) {
+
+                word = word.toLowerCase();
+                // If encounter word that is already in map, override it with count + 1
+                if (wordCount.containsKey(word)) {
+                    wordCount.put(word, wordCount.get(word) + 1);
+                }
+                else {
+                    // If encounter word that is not in map, add it to map with count 1
+                    wordCount.put(word, 1);
+                }
+            }
+        }
     }
 
     /**
