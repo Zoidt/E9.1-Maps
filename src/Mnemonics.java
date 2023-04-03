@@ -15,6 +15,11 @@ public class Mnemonics {
         String keys = "22233344455566677778889999";
 
         // TODO create keypad map
+
+        for (int i = 0; i < alphabet.length(); i++) {
+            keypad.put(alphabet.charAt(i), keys.charAt(i) - '0');
+        }
+        
     }
 
     public static String toNumber(String mnemonic) {
